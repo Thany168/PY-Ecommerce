@@ -1,6 +1,28 @@
-// src/services/authService.js
-import api from "./api";
+import axios from "axios";
 
-export const login = (data) => api.post("/auth/login", data);
-export const register = (data) => api.post("/auth/register", data);
-export const getProfile = () => api.get("/auth/me");
+const API_URL = "http://localhost:5000/api/auth"; // Change to  backend URL pel yerng build API hx
+
+export const login = async (credentials) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, credentials);
+    if (response.data.token) {
+      localStorage.setItem("user", JSON.stringify(response.data));
+    }
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: "Login failed" };
+  }
+};
+
+export const register = async (userData) => {
+  try {
+    const response = await axios.post(`${API_URL}/register`, userData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { message: "Registration failed" };
+  }
+};
+
+export const logout = () => {
+  localStorage.removeItem("user");
+};

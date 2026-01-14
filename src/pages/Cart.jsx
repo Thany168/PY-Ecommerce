@@ -27,6 +27,8 @@ export default function Cart() {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     Swal.fire({
+      toast: true,
+      position: "top-end",
       icon: "success",
       title: "Removed!",
       text: "Item removed from your cart.",

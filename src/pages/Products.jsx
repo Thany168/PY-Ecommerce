@@ -1,6 +1,7 @@
-// src/pages/Products.jsx
 import { useEffect, useState } from "react";
-import { getProducts } from "../services/publicApi"; // your current api
+// import { getProducts } from "../services/productApi"; // your current api
+import { getProducts } from "../services/productApi";
+
 import { Link } from "react-router-dom";
 
 export default function Products() {
