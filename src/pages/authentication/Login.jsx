@@ -37,11 +37,12 @@ export default function Login() {
           <div className="flex items-center border rounded px-3 py-2">
             <FiMail className="text-gray-400 mr-2" />
             <input
-              type="email"
+              type="text"
               className="w-full outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Enter your email."
             />
           </div>
         </div>
@@ -55,6 +56,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Enter your password."
             />
             <span
               className="ml-2 cursor-pointer"
